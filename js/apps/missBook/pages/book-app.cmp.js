@@ -10,6 +10,7 @@ export default {
       <app-header />
       <book-filter class="flex" @filter="setFilter"/>
       <book-list v-bind:books="booksToShow"/>
+      <!-- <router-view></router-view> -->
     </main>
     `,
   data() {

@@ -38,7 +38,7 @@ export default {
       book: null,
       isSale: null,
       nextBookId: null,
-      prevBookId: null
+      prevBookId: null,
     };
   },
   computed: {
@@ -50,10 +50,10 @@ export default {
     },
 
     reviewsWithDate() {
-      return this.book.reviews.map(review => {
+      return this.book.reviews.map((review) => {
         review.date = this.localTime(review.date);
         return review;
-      }) 
+      });
     },
 
     isCheap() {
@@ -86,11 +86,11 @@ export default {
     close() {
       this.$router.push("/book");
     },
-    
+
     localTime(date) {
       return new Date(date).toLocaleDateString("en-US");
     },
-    
+
     setReview() {
       const { bookId } = this.$route.params;
       bookService.getBookById(bookId).then((book) => (this.book = book));
@@ -100,32 +100,30 @@ export default {
       bookService.getBookById(bookId).then((book) => {
         bookService.createReviews(book);
         this.book = book;
-        console.log('curr book',this.book.id)
-        bookService.getNextBook(this.book.id)
-          .then(nextBookId => {
-            // console.log(this.book.id);
-            this.nextBookId = nextBookId;
-            // console.log(this.nextBookId);
-          });
-        bookService.getPrevBook(this.book.id)
-          .then(prevBookId => {
-            // console.log(this.book.id);
-            this.prevBookId = prevBookId;
-            // console.log(this.nextBookId);
-          })
+        console.log("curr book", this.book.id);
+        bookService.getNextBook(this.book.id).then((nextBookId) => {
+          // console.log(this.book.id);
+          this.nextBookId = nextBookId;
+          // console.log(this.nextBookId);
+        });
+        bookService.getPrevBook(this.book.id).then((prevBookId) => {
+          // console.log(this.book.id);
+          this.prevBookId = prevBookId;
+          // console.log(this.nextBookId);
+        });
       });
     },
   },
 
   created() {
-    console.log('h')
+    console.log("h");
     const { bookId } = this.$route.params;
     this.loadBook(bookId);
   },
   watch: {
-    '$route.params.bookId'(newBookId) {
-        this.loadBook(newBookId);
-    }
+    "$route.params.bookId"(newBookId) {
+      this.loadBook(newBookId);
+    },
   },
   components: {
     longText,

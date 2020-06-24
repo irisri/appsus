@@ -1,7 +1,14 @@
 import utilService from "../../../services/util.service.js";
 
+export const keepService = {
+  getNotes,
+};
+
+var KEY = 'notes' 
+
 var notes = [
   {
+    id: utilService.makeId(),
     type: "NoteText",
     isPinned: true,
     info: {
@@ -9,9 +16,10 @@ var notes = [
     },
   },
   {
+    id: utilService.makeId(),
     type: "NoteImg",
     info: {
-      url: "http://some-img/me",
+      url: "img/gears.png",
       title: "Me playing Mi",
     },
     style: {
@@ -19,6 +27,7 @@ var notes = [
     },
   },
   {
+    id: utilService.makeId(),
     type: "NoteTodos",
     info: {
       label: "How was it:",
@@ -34,9 +43,46 @@ var notes = [
       ],
     },
   },
+  {
+    id: utilService.makeId(),
+    type: "NoteAudio",
+    info: {
+      url: "audio/bensound-clearday.mp3",
+      title: "It\'s a clear day!",
+    },
+  },
+  {
+    id: utilService.makeId(),
+    type: "NoteVideo",
+    info: {
+      url: "video/production.mp4",
+      title: "It\'s a clear day!",
+    },
+  },
 ];
 
-function getKeeps() {
-    console.log('h');
+function getNotes() {
+  if (!utilService.loadFromStorage(KEY)) {
+    utilService.saveToStorage(KEY, notes);
+  }
+  return Promise.resolve(utilService.loadFromStorage(KEY))
+}
 
+function getNote(id) {
+  return notes.find(note => note.id === id);
+}
+
+function addNotes(type, info) {
+  var note = {
+    id: utilService.makeId(),
+  }
+  console.log('adding... continu writing')
+}
+
+function updateNotes(info) {
+  console.log('update notes... continu writing');
+}
+
+function removeNotes(id) {
+  console.log('update notes... continu writing');
 }
