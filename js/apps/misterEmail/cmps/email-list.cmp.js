@@ -1,18 +1,20 @@
-import emailPreview from "./email-preview.cmp.js";
+import emailPreview from './email-preview.cmp.js';
 
 export default {
     props: ['emails'],
     template: `
-        <ul class="email-list">
-            <email-preview v-for="email in emails"  @click.native="selectEmail(email)" :email="email" :key="email.id"/>
-        </ul>
+        <div>
+            <ul class="email-list">
+                <email-preview v-for="email in emails"  @click.native="selectEmail(email)" :email="email" :key="email.id"/>
+            </ul>
+        </div>
     `,
     methods: {
         selectEmail(email) {
-            this.$emit("emailSelected", email);
+            this.$emit('emailSelected', email);
         },
     },
     components: {
-        emailPreview
+        emailPreview,
     }
 };

@@ -40,7 +40,3 @@ export default {
   },
 }
  
-  //   console.log('aaa');
-    
-    // emailService.getInboxEmails().then((emails) => (this.emails = emails));
-
