@@ -4,6 +4,7 @@ import bookDetails from "./apps/missBook/pages/book-details.cmp.js";
 import bookFind from "./apps/missBook/pages/find-book.cmp.js";
 import emailApp from './apps/misterEmail/pages/email-app.cmp.js';
 import keepApp from "./apps/missKeep/pagese/keep-app.cmp.js";
+import eamilApp from "./apps/misterEmail/pages/email-app.cmp.js";
 
 const myRoutes = [
   {
@@ -13,6 +14,10 @@ const myRoutes = [
   {
     path: "/keep/",
     component: keepApp,
+  },
+  {
+    path: "/email/",
+    component: eamilApp,
   },
   {
     path: "/book/",
