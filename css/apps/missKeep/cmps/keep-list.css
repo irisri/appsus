@@ -1,0 +1,10 @@
+.keep-list {
+    width: 90%;
+    height: 90vh;
+    margin: 20px auto;
+    column-count: 3;
+}
+
+.keep-list * {
+    column-span: 1;
+}

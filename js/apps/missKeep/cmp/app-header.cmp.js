@@ -1,8 +1,7 @@
 export default {
   template: `
-    <div>
+    <div class="second-nav">
       <h1>Notes</h1>
-      <input type="text" />
     </div>
     `,
 };

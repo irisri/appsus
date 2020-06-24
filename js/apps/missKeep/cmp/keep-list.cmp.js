@@ -1,17 +1,24 @@
-import notePreview from "./note-preview.cmp.js";
+import noteImg from "./note-img.cmp.js";
+import noteText from "./note-text.cmp.js";
+import noteTodos from "./note-todos.cmp.js";
+import noteVideo from "./note-video.cmp.js";
 
 export default {
   props: ["notes"],
   template: `
-    <ul>
-        <note-preview v-for="note in notes" :note="note" :key="note.id"/>
-    </ul>
+  <section class="keep-list">
+        <div v-for="note in notes">
+            <component :is="note.type" :info="note.info" :key="note.id"></component>
+        </div>
+    </section>
     `,
   components: {
-    notePreview,
+    noteImg,
+    noteText,
+    noteTodos,
+    noteVideo
   },
   create() {
       console.log('keep list', this.notes);
-      
   }
 };

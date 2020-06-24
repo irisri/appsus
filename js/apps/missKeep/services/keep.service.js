@@ -43,14 +43,14 @@ var notes = [
       ],
     },
   },
-  {
-    id: utilService.makeId(),
-    type: "noteAudio",
-    info: {
-      url: "audio/bensound-clearday.mp3",
-      title: "It\'s a clear day!",
-    },
-  },
+  // {
+  //   id: utilService.makeId(),
+  //   type: "noteAudio",
+  //   info: {
+  //     url: "audio/bensound-clearday.mp3",
+  //     title: "It\'s a clear day!",
+  //   },
+  // },
   {
     id: utilService.makeId(),
     type: "noteVideo",

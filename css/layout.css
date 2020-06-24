@@ -13,13 +13,17 @@
 
 body {
     margin: 0 auto;
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(228, 226, 226);
     font-family: robotoLight;
     font-size: 1rem;
 }
 
 .main-nav {
     background-color: cadetblue;
+}
+
+.second-nav {
+    background-color: #939393;
 }
 
 h1, h3, p {
