@@ -1,39 +1,46 @@
-// import { emailService } from "../services/email.service.js";
-
+import { emailService } from '../services/email-service.js';
+import emailList from '../cmps/email-list.cmp.js';
 
 export default {
   template: `
     <main class="email-app">
-      <app-header />
-      <h2>hiiii</h2>
-      <email-filter class="flex" @filter="setFilter"/>
-      <email-list v-bind:email="emailsToShow"/>
+      <!-- <app-header /> -->
+      <!-- <email-filter class="flex" @filter="setFilter"/> -->
+      <email-list v-bind:emails="emailsToShow"/>
     </main>
     `,
   data() {
     return {
       emails: [],
       filterBy: {
-        name: '',
         read: '',
         unread: '',
       },
     };
   },
   methods: {
-    setFilter(filterBy) {
-      this.filterBy = filterBy;
-    },
-  },
-  computed: {
-    emailsToShow() {
-    },
-  },
-  components: {
+    // setFilter(filterBy) {
+    //   this.filterBy = filterBy;
+    // },
   },
   created() {
-    console.log('aaa');
-    
-    bookService.getInboxEmails().then((emails) => (this.emails = emails));
+      emailService.getInboxEmails()
+      .then(emails => {
+          console.log(emails);
+          this.emails = emails;
+  })
+    },
+    computed: {
+      emailsToShow() {
+        return this.emails;
+      }
+    },
+  components: {
+    emailList,
   },
-};
+}
+ 
+  //   console.log('aaa');
+    
+    // emailService.getInboxEmails().then((emails) => (this.emails = emails));
+
