@@ -11,22 +11,52 @@
     src: url(fonts/Roboto-Light.ttf);
 }
 
+@font-face {
+    font-family: robotoMedium;
+    src: url(fonts/Roboto-Medium.ttf);
+}
+
+/* BASE */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: robotoLight, sans-serif;
+    color: #626262;
+    line-height: 2;
+}
+
 body {
     margin: 0 auto;
-    background-color: rgb(228, 226, 226);
+    /* background-color: rgba(226, 230, 231, 0.836); */
     font-family: robotoLight;
     font-size: 1rem;
 }
 
-.main-nav {
-    background-color: cadetblue;
-}
-
-.second-nav {
-    background-color: #939393;
-}
 
 h1, h3, p {
     margin: 0;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    line-height: 1;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 1.875rem;
+    margin-bottom: 26px;
+}
+
+
+@media (max-width: 600px) {
+    html {
+        font-size: 18px;
+    }
+}
+
 

@@ -1,0 +1,28 @@
+/* footer */
+
+.social-nav {
+    margin: 0 auto;
+}
+
+.social-nav a {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    color: #fff;
+    background-color: tomato;
+    text-decoration: none;
+}
+
+.btn-social {
+    height: 38px;
+    width: 38px;
+    margin-top: 25px;
+}
+
+.btn-social:hover {
+    cursor: pointer;
+    background-color: #516fad;
+}

@@ -4,7 +4,7 @@ export default {
     props: ['emails'],
     template: `
         <div>
-            <ul class="email-list">
+            <ul class="email-list clean-list align-center info-rap wrap">
                 <email-preview v-for="email in emails"  @click.native="selectEmail(email)" :email="email" :key="email.id"/>
             </ul>
         </div>

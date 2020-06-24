@@ -4,7 +4,7 @@ import longText from './long-text.cmp.js';
 export default {
     props: ['email'],
     template: `
-        <li class="email-preview clean-list align-center text-center">
+        <li class="email-preview clean-list align-center info-rap wrap">
             <!-- <img v-bind:src="" /> -->
             <h5>{{email.name}}</h5>
             <pre>{{email.subject}} {{trimBody}} {{sentAt}}</pre>
@@ -23,7 +23,7 @@ export default {
        
     },
     created(){
-        let trimTxt = this.email.body.length > 60 ? this.email.body.substring(0, 60) + "..." : this.email.body
+        let trimTxt = this.email.body.length > 60 ? this.email.body.substring(0, 50) + "..." : this.email.body
         this.trimBody = trimTxt;
         console.log(this.trimBody);
         let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
