@@ -9,7 +9,7 @@ var KEY = 'notes'
 var notes = [
   {
     id: utilService.makeId(),
-    type: "NoteText",
+    type: "noteText",
     isPinned: true,
     info: {
       txt: "Fullstack Me Baby!",
@@ -17,7 +17,7 @@ var notes = [
   },
   {
     id: utilService.makeId(),
-    type: "NoteImg",
+    type: "noteImg",
     info: {
       url: "img/gears.png",
       title: "Me playing Mi",
@@ -28,7 +28,7 @@ var notes = [
   },
   {
     id: utilService.makeId(),
-    type: "NoteTodos",
+    type: "noteTodos",
     info: {
       label: "How was it:",
       todos: [
@@ -45,7 +45,7 @@ var notes = [
   },
   {
     id: utilService.makeId(),
-    type: "NoteAudio",
+    type: "noteAudio",
     info: {
       url: "audio/bensound-clearday.mp3",
       title: "It\'s a clear day!",
@@ -53,7 +53,7 @@ var notes = [
   },
   {
     id: utilService.makeId(),
-    type: "NoteVideo",
+    type: "noteVideo",
     info: {
       url: "video/production.mp4",
       title: "It\'s a clear day!",
@@ -68,8 +68,8 @@ function getNotes() {
   return Promise.resolve(utilService.loadFromStorage(KEY))
 }
 
-function getNote(id) {
-  return notes.find(note => note.id === id);
+function getNoteById(id) {
+  return Promise.resolve(notes.find(note => note.id === id));
 }
 
 function addNotes(type, info) {
