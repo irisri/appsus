@@ -8,6 +8,10 @@ const myRoutes = [
     path: "/",
     component: homePage,
   },
+  // {
+  //   path: "/keep/",
+  //   component: homePage,
+  // },
   {
     path: "/book/",
     component: bookApp,
