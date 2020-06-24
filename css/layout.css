@@ -1,9 +1,28 @@
+
+/* for headers */
+@font-face {
+    font-family: robotoBlack;
+    src: url(fonts/Roboto-Black.ttf);
+}
+
+/* for p */
+@font-face {
+    font-family: robotoLight;
+    src: url(fonts/Roboto-Light.ttf);
+}
+
 body {
     margin: 0 auto;
+    background-color: rgb(197, 197, 197);
+    font-family: robotoLight;
+    font-size: 1rem;
+}
+
+.main-nav {
+    background-color: cadetblue;
 }
 
 h1, h3, p {
     margin: 0;
 }
 
-.router-link-exact-active {color: black}

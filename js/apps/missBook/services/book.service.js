@@ -1,4 +1,4 @@
-import utilService from "./util.service.js";
+import utilService from "../../../utils/util.service.js";
 
 export const bookService = {
   getBooks,
