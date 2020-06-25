@@ -1,14 +1,8 @@
 export default {
   template: `
-            <section class="note">
-                <pre>{{info}}</pre>
-                <!-- <label>
-                    {{info.label}}
-                    <select v-model="val" @change="reportVal">  
-                        <option v-for="opt in info.opts">{{opt}}</option>
-                    </select>
-                </label>   -->
-            </section>
+    <section class="note">
+      <video :src="info.url" controls></video>
+    </section>
             `,
   props: ["info"],
   data() {

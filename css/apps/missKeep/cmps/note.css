@@ -1,10 +1,43 @@
 .note {
-    background-color: #939393;
+    background-color: #bbbbbb;
     border-radius: 12px;
+    padding: 0.5rem;
+    margin-bottom: 10px;
+    text-align: left;
 }
 
 .note:hover {
     cursor: pointer;
     box-shadow: -1px 3px 55px -22px rgba(0,0,0,0.75);
     transition: box-shadow 0.5s;
+}
+
+
+.note p {
+    font-size: 0.8rem;
+}
+
+.note i {
+    font-size: 1rem;
+    color: #626262;
+}
+
+.note img {
+    width: 14.375rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.note input[type="checkbox"] {
+    display: hide;
+}
+
+.note .line-through {
+    text-decoration: line-through;
+}
+
+.note video {
+    width: 15rem;
+    display: block;
+    margin: 0 auto;
 }

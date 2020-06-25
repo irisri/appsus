@@ -1,26 +1,27 @@
 export default {
-    template: `
-            <section class="note">
-                <pre>{{info}}</pre>
+  props: ["info"],
+  template: `
+    <section class="note">
+      <p>{{info.txt}}</p>
                 <!-- <label>
                     {{info.label}}
                     <select v-model="val" @change="reportVal">  
                         <option v-for="opt in info.opts">{{opt}}</option>
                     </select>
                 </label>   -->
-            </section>
+      <i class="fas fa-font"></i>
+    </section>
             `,
-    props: ["info"],
-    data() {
-      return {}
-      // return {
-      //     val: '',
-      // }
-    },
-    methods: {
-      // reportVal() {
-      //     this.$emit('setVal', this.val)
-      // }
-    },
-  };
-  
+  data() {
+    return {};
+  },
+  methods: {
+    // reportVal() {
+    //     this.$emit('setVal', this.val)
+    // }
+  },
+  created() {
+    console.log('h', this.info);
+    
+  }
+};

@@ -1,25 +1,20 @@
+import todoCheckbox from "./todo-checkbox.cmp.js";
+
 export default {
-  template: `
-          <section class="note">
-              <pre>{{info}}</pre>
-              <!-- <label>
-                  {{info.label}}
-                  <select v-model="val" @change="reportVal">  
-                      <option v-for="opt in info.opts">{{opt}}</option>
-                  </select>
-              </label>   -->
-          </section>
-          `,
   props: ["info"],
+  template: `
+    <section class="note">
+      <h4>{{info.label}}</h4>
+      <todo-checkbox v-for="todo in info.todos" :todo="todo" :key="todo.id"/>
+    </section>
+          `,
   data() {
-    return {}
-    // return {
-    //     val: '',
-    // }
+    return {
+      todos: this.info.todos
+    }
   },
-  methods: {
-    // reportVal() {
-    //     this.$emit('setVal', this.val)
-    // }
-  },
+  components: {
+    todoCheckbox,
+  }
+  
 };

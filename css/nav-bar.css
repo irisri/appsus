@@ -6,6 +6,11 @@
 
 .second-nav {
     background-color: #bbb3b328;
+    padding-left: 1.6rem;
+}
+
+.second-nav h1 {
+    margin: 10px
 }
 
 .nav-link {
