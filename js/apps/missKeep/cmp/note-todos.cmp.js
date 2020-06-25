@@ -1,11 +1,16 @@
 import todoCheckbox from "./todo-checkbox.cmp.js";
 
 export default {
-  props: ["info"],
+  props: ["info", "noteId"],
   template: `
     <section class="note">
       <h4>{{info.label}}</h4>
-      <todo-checkbox v-for="todo in info.todos" :todo="todo" :key="todo.id"/>
+        <todo-checkbox :info="info" @saveingTodo="saveTodo" v-for="todo in info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
+      <div>
+        <i @click="addingToTodo" class="fas fa-list-ul"></i>
+        <i class="fas fa-trash-alt"></i>
+        <i class="fas fa-trash-alt"></i>
+      </div>
     </section>
           `,
   data() {
@@ -15,6 +20,13 @@ export default {
   },
   components: {
     todoCheckbox,
+  },
+  methods: {
+    saveTodo(todoObj) {
+      this.$emit('savingChanges', this.noteId, todoObj);
+    },
+    addingToTodo() {
+      this.$emit('savingChanges', this.noteId, {})
+    }
   }
-  
 };
