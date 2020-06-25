@@ -4,11 +4,16 @@ import longText from './long-text.cmp.js';
 export default {
     props: ['email'],
     template: `
-        <li class="email-preview clean-list align-center info-rap wrap">
+        <li class="email-preview" @click="emailOpen=!emailOpen">
             <!-- <img v-bind:src="" /> -->
-            <h5>{{email.name}}</h5>
-            <pre>{{email.subject}} {{trimBody}} {{sentAt}}</pre>
-            <!-- <long-text v-bind:txt="email.body"></long-text> -->
+            <pre>{{email.name}}       {{email.subject}} {{trimBody}}       {{sentAt}}</pre>
+            <section v-if="emailOpen">
+                <pre class="email-open">
+                {{email.subject}}
+                {{email.name}}     {{email.address}}
+                    {{email.body}}</pre>
+                
+            </section>
             <!-- <p>{{showCurrency}}</p> -->
             <!-- <router-link :to="'/email/' + email.id">Details</router-link> -->
         </li>
@@ -16,11 +21,14 @@ export default {
     data() {
         return{
             sentAt: '',
-            trimBody: ''
+            trimBody: '',
+            emailOpen: false,
         }
     },
     computed: {
-       
+    //    toggleBodyEmail() {
+    //      return emailOpen = !emailOpen;
+    //    }
     },
     created(){
         let trimTxt = this.email.body.length > 60 ? this.email.body.substring(0, 50) + "..." : this.email.body

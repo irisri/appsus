@@ -2,13 +2,22 @@
 
 .email-preview {
     border-bottom: 1px solid lightgray;
-    word-wrap: break-word;
     cursor: pointer;
     font-family: robotoLight, sans-serif;
+    text-align: justify;
+    /* white-space: wrap; */
 }
 
 .email-preview:hover {
     border-left: 2px solid lightgray;
     border-right: 2px solid lightgray;
     box-shadow: 0px 1px 0px lightgrey;
+}
+
+.email-preview *{
+   /* display: inline-flex; */
+}
+
+.email-open {
+    /* display: inline-flex; */
 }
