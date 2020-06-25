@@ -6,5 +6,5 @@
 }
 
 .keep-list * {
-    column-span: 1;
+    break-inside: avoid
 }

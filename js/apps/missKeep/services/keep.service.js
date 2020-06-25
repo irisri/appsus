@@ -33,10 +33,12 @@ var notes = [
       label: "How was it:",
       todos: [
         {
+          id: utilService.makeId(),
           txt: "Do that",
           doneAt: null,
         },
         {
+          id: utilService.makeId(),
           txt: "Do this",
           doneAt: 187111111,
         },
