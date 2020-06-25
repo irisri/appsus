@@ -8,7 +8,7 @@ export default {
       <main class="keep-app">
         <app-header />
         <!-- <book-filter class="flex" @filter="setFilter"/> -->
-        <keep-list :notes="notesToShow" @savingChanges="onSaveChanges" @deleteNote="onRemoveNote"/>
+        <keep-list :notes="notesToShow" @savingChanges="onSaveChanges" @deleteNote="onRemoveNote" @deleteOneTodo="onRemoveOneTodo"/>
         <!-- <pre>{{notes}}</pre> -->
       </main>
       `,
@@ -19,15 +19,18 @@ export default {
     };
   },
   methods: {
-    onSaveChanges(id, info) {
-      keepService.updateNotes(id, info)
+    onSaveChanges(noteId, info) {
+      keepService.updateNotes(noteId, info).then(notes => this.notes = notes);
     },
-    onRemoveNote(id) {
-      keepService.removeNotes(id).then(notes => {
+    onRemoveNote(noteId) {
+      keepService.removeNotes(noteId).then(notes => {
         console.log(notes);
         this.notes = notes;
       });
     },
+    onRemoveOneTodo(noteId, todoId) {
+      keepService.removeOneTodo(noteId, todoId).then(notes => this.notes = notes);
+    }
     //   setFilter(filterBy) {
     //     this.filterBy = filterBy;
     //   },

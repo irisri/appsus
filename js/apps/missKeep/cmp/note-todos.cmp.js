@@ -5,10 +5,11 @@ export default {
   template: `
     <section class="note">
       <h4>{{info.label}}</h4>
-        <todo-checkbox :info="info" @saveingTodo="saveTodo" v-for="todo in info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
+        <todo-checkbox :info="info" @saveingTodoChange="saveChangedTodo" @removingOneTodo="reomveOneTodo" 
+        v-for="todo in info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
       <div>
-        <i @click="addingToTodo" class="fas fa-list-ul"></i>
-        <i class="fas fa-trash-alt"></i>
+        <i @click="addingOneTodo" class="fas fa-list-ul"></i>
+        <i class="fas fa-trash-alt" @click="removeNote"></i>
       </div>
     </section>
           `,
@@ -21,11 +22,17 @@ export default {
     todoCheckbox,
   },
   methods: {
-    saveTodo(todoObj) {
+    saveChangedTodo(todoObj) {
       this.$emit('savingChanges', this.noteId, todoObj);
     },
-    addingToTodo() {
+    addingOneTodo() {
       this.$emit('savingChanges', this.noteId, {})
-    }
+    },
+    removeNote() {
+      this.$emit('removingNote', this.noteId);
+    },
+    reomveOneTodo(todoId) {
+      this.$emit('removingOneTodo', this.noteId, todoId);
+    },
   }
 };

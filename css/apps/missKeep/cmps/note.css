@@ -54,3 +54,7 @@
 .todo {
     height: 1.5rem;
 }
+
+.todo span {
+    right: 0;
+}

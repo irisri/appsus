@@ -3,7 +3,8 @@ import utilService from "../../../services/util.service.js";
 export const keepService = {
   getNotes,
   updateNotes,
-  removeNotes
+  removeNotes,
+  removeOneTodo
 };
 
 const KEY = "notes";
@@ -101,7 +102,7 @@ function _createTodo() {
 
 function updateNotes(noteId, info) {
   // console.log(noteId, gNotes);
-  getNoteById(noteId).then((note) => {
+  return getNoteById(noteId).then((note) => {
     // console.log(note.type);
     
     if (note.type === "noteText") note.info.txt = info;
@@ -115,7 +116,7 @@ function updateNotes(noteId, info) {
     }
     utilService.saveToStorage(KEY, gNotes);
     console.log('saving');
-    
+    return gNotes;
   }); 
 }
 
@@ -126,8 +127,17 @@ function getIndexNote(id) {
 function removeNotes(noteId) {
   console.log(noteId);
   return getIndexNote(noteId).then(index => {
-    gNotes.splice(index, 1)
-    console.log(gNotes)
+    gNotes.splice(index, 1);
+    utilService.saveToStorage(KEY, gNotes);
+    return gNotes;
+  })
+}
+
+function removeOneTodo(noteId, todoId) {
+  console.log(noteId, todoId);
+  return getNoteById(noteId).then(note => {
+    const index = note.info.todos.findIndex(todo => todo.id === todoId);
+    note.info.todos.splice(index, 1);
     utilService.saveToStorage(KEY, gNotes);
     return gNotes;
   })

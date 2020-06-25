@@ -9,8 +9,8 @@ export default {
   template: `
   <section class="keep-list">
         <div v-for="note in notes" :key="note.legth">
-            <component :note="note" :is="note.type" :info="note.info" :noteId="note.id" :key="note.id" @removingNote="removeNote" 
-            @savingChanges="saveChanges"></component>
+            <component :note="note" :is="note.type" :info="note.info" :noteId="note.id" :key="note.id" 
+            @removingOneTodo="removeOneTodo" @removingNote="removeNote" @savingChanges="saveChanges"></component>
         </div>
     </section>
     `,
@@ -21,11 +21,14 @@ export default {
     noteVideo
   },
   methods: {
-    saveChanges(id, info) {
-      this.$emit('savingChanges', id, info);
+    saveChanges(noteId, info) {
+      this.$emit('savingChanges', noteId, info);
     },
-    removeNote(id) {
-      this.$emit('deleteNote', id);
+    removeNote(noteId) {
+      this.$emit('deleteNote', noteId);
+    },
+    removeOneTodo(noteId, todoId) {
+      this.$emit('deleteOneTodo', noteId, todoId);
     },
   },
   created() {
