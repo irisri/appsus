@@ -1,19 +1,18 @@
 
-
-.email-app {
-    /* max-width: 1200px; */
-    /* display: block; */
+.email-app :not(:first-child) *{
     background-color: #fffffff8;
-    flex-basis: 100%;
-    /* margin-block-end: 40px; */
-    /* margin-top: 70px; */
     color: #606060;
     letter-spacing: 0.48px;
     line-height: 20px;
-    border-radius: 6px;
-    max-width: 860px;
-    margin: 0 auto;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-     font-family: robotoMedium, sans-serif;
+    margin-right: 10px;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    font-family: robotoLight, sans-serif;
 }
+
+main .email-app {
+    display: grid;
+    grid-template-columns: 200px 1200px;
+    gap: 10px; 
+}
+

@@ -1,12 +1,16 @@
 import { emailService } from '../services/email-service.js';
 import emailList from '../cmps/email-list.cmp.js';
+import emailFilter from '../cmps/email-filter.cmp.js';
+import emailSearch from '../cmps/email-search.cmp.js';
+
 
 export default {
   template: `
     <main class="email-app">
-      <!-- <app-header /> -->
-      <!-- <email-filter class="flex" @filter="setFilter"/> -->
-      <email-list v-bind:emails="emailsToShow"/>
+      <email-search class=""/>
+      <email-filter class=""/>
+      <!-- @filter="setFilter" -->
+      <email-list class="" v-bind:emails="emailsToShow"/>
     </main>
     `,
   data() {
@@ -37,6 +41,8 @@ export default {
     },
   components: {
     emailList,
+    emailFilter,
+    emailSearch
   },
 }
  
