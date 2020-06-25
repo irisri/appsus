@@ -1,27 +1,35 @@
 export default {
-  props: ["info"],
+  props: ["info", "noteId"],
   template: `
     <section class="note">
-      <p>{{info.txt}}</p>
+      <input @blur="saveChanges" v-model="txt" />
                 <!-- <label>
                     {{info.label}}
                     <select v-model="val" @change="reportVal">  
                         <option v-for="opt in info.opts">{{opt}}</option>
                     </select>
                 </label>   -->
-      <i class="fas fa-font"></i>
+      <div>
+        <i class="fas fa-font"></i>
+        <i class="fas fa-trash-alt" @click="removeNote"></i>
+      </div>
     </section>
             `,
   data() {
-    return {};
+    return {
+      txt: this.info.txt
+    };
   },
   methods: {
-    // reportVal() {
-    //     this.$emit('setVal', this.val)
-    // }
+    saveChanges() {
+      this.$emit('savingChanges', this.noteId, this.txt);
+    },
+    removeNote() {
+      this.$emit('removingNote', this.noteId);
+    }
   },
-  created() {
-    console.log('h', this.info);
+  updated() {
+    console.log('updated');
     
   }
 };

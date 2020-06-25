@@ -12,12 +12,16 @@
     transition: box-shadow 0.5s;
 }
 
+.note h4 {
+    margin-bottom: 0.3125rem;
+}
 
 .note p {
     font-size: 0.8rem;
 }
 
 .note i {
+    margin-left: 0.5rem;
     font-size: 1rem;
     color: #626262;
 }
@@ -28,10 +32,6 @@
     margin: 0 auto;
 }
 
-.note input[type="checkbox"] {
-    display: hide;
-}
-
 .note .line-through {
     text-decoration: line-through;
 }
@@ -40,4 +40,21 @@
     width: 15rem;
     display: block;
     margin: 0 auto;
+}
+
+.note input {
+    border: none;
+    outline: none;
+    margin: 0 auto;
+    background-color: #bbbbbb;
+    color: #626262;
+    font-family: robotoLight;
+}
+
+.todo {
+    height: 1.5rem;
+}
+
+.todo span {
+    right: 0;
 }
