@@ -8,9 +8,9 @@ export default {
   props: ["notes"],
   template: `
   <section class="keep-list">
-        <div v-for="note in notes">
-            <component :is="note.type" :info="note.info" :noteId="note.id" :key="note.id" @removingNote="onRemoveNote" 
-            @savingChanges="onSavingChanges"></component>
+        <div v-for="note in notes" :key="note.legth">
+            <component :note="note" :is="note.type" :info="note.info" :noteId="note.id" :key="note.id" @removingNote="removeNote" 
+            @savingChanges="saveChanges"></component>
         </div>
     </section>
     `,
@@ -21,11 +21,14 @@ export default {
     noteVideo
   },
   methods: {
-    onSavingChanges(id, info) {
-      keepService.updateNotes(id, info);
+    saveChanges(id, info) {
+      this.$emit('savingChanges', id, info);
     },
-    onRemoveNote(id) {
-      keepService.removeNotes(id)
-    }
+    removeNote(id) {
+      this.$emit('deleteNote', id);
+    },
+  },
+  created() {
+    console.log('updated')
   }
 };

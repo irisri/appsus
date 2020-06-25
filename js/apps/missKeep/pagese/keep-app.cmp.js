@@ -2,12 +2,13 @@ import { keepService } from "../services/keep.service.js";
 import appHeader from "../cmp/app-header.cmp.js"
 import keepList from "../cmp/keep-list.cmp.js"
 
+
 export default {
   template: `
       <main class="keep-app">
         <app-header />
         <!-- <book-filter class="flex" @filter="setFilter"/> -->
-        <keep-list v-bind:notes="notesToShow"/>
+        <keep-list :notes="notesToShow" @savingChanges="onSaveChanges" @deleteNote="onRemoveNote"/>
         <!-- <pre>{{notes}}</pre> -->
       </main>
       `,
@@ -18,6 +19,15 @@ export default {
     };
   },
   methods: {
+    onSaveChanges(id, info) {
+      keepService.updateNotes(id, info)
+    },
+    onRemoveNote(id) {
+      keepService.removeNotes(id).then(notes => {
+        console.log(notes);
+        this.notes = notes;
+      });
+    },
     //   setFilter(filterBy) {
     //     this.filterBy = filterBy;
     //   },

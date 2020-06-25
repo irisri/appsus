@@ -28,4 +28,8 @@ export default {
       this.$emit('removingNote', this.noteId);
     }
   },
+  updated() {
+    console.log('updated');
+    
+  }
 };

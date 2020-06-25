@@ -9,7 +9,6 @@ export default {
       <div>
         <i @click="addingToTodo" class="fas fa-list-ul"></i>
         <i class="fas fa-trash-alt"></i>
-        <i class="fas fa-trash-alt"></i>
       </div>
     </section>
           `,

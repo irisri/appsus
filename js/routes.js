@@ -31,10 +31,6 @@ const myRoutes = [
     path: "/findBook/",
     component: bookFind,
   },
-  {
-    path: '/email/',
-    component: emailApp,
-  }
   
 ];
 

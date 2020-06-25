@@ -8,19 +8,13 @@ export const keepService = {
 
 const KEY = "notes";
 
-var gNotes = (() => {
-  var notes = utilService.loadFromStorage(KEY);
-  if (!notes) {
-    notes = createNotes();
-    utilService.saveToStorage(KEY, notes);
-  }
-  return notes;
-})();
+var gNotes = createNotes();
 
 function createNotes() {
   let notes = utilService.loadFromStorage(KEY);
+  console.log('storege', notes)
   if (notes) return notes;
-  (notes = [
+  notes = [
     {
       id: utilService.makeId(),
       type: "noteText",
@@ -75,14 +69,14 @@ function createNotes() {
         title: "It's a clear day!",
       },
     },
-  ]),
-    utilService.saveToStorage(KEY, notes);
+  ];
 
+  utilService.saveToStorage(KEY, notes);
+  console.log('notes2', notes)
   return notes;
 }
 
 function getNotes() {
-  if (!utilService.loadFromStorage(KEY)) utilService.saveToStorage(KEY, gNotes);
   return Promise.resolve(utilService.loadFromStorage(KEY));
 }
 
@@ -125,7 +119,16 @@ function updateNotes(noteId, info) {
   }); 
 }
 
+function getIndexNote(id) {
+  return Promise.resolve(gNotes.findIndex((note) => note.id === id))
+}
 
-function removeNotes(id) {
-  console.log(id);
+function removeNotes(noteId) {
+  console.log(noteId);
+  return getIndexNote(noteId).then(index => {
+    gNotes.splice(index, 1)
+    console.log(gNotes)
+    utilService.saveToStorage(KEY, gNotes);
+    return gNotes;
+  })
 }
