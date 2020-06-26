@@ -38,6 +38,7 @@ function createNotes() {
     {
       id: utilService.makeId(),
       type: "noteTodos",
+      isPinned: true,
       info: {
         label: "How was it:",
         todos: [

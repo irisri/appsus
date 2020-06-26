@@ -1,10 +1,10 @@
 export default {
+  props: ["note"],
   template: `
     <section class="note">
-      <video :src="info.url" controls></video>
+      <video :src="note.info.url" controls></video>
     </section>
             `,
-  props: ["info"],
   data() {
     return {}
     // return {
