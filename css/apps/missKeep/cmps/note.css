@@ -60,4 +60,17 @@
 
 .black {
     color: black;
+}   
+
+@media (max-width: 720px) {
+    .keep-list {
+        display: flex;
+        flex-direction: column;
+    }
+    .note img {
+        width: 14rem;
+    }
+    .todo span {
+        padding-right: 0.4rem
+    }
 }
