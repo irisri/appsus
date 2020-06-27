@@ -15,7 +15,7 @@ export default {
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="../../../../img/pexels-photo-3747505.jpeg" alt="Jane" style="width:37%">
+      <img src="/img/pexels-photo-3747505.jpeg" alt="Jane" style="width:37%">
       <div class="container">
         <h2>MISS BOOK</h2>
         <p class="title">Books Onlain</p>
@@ -25,7 +25,7 @@ export default {
 
   <div class="column">
     <div class="card">
-      <img src="../../../../img/pexels-photo-2764666.jpeg" alt="Mike" style="width:37%">
+      <img src="/img/pexels-photo-2764666.jpeg" alt="Mike" style="width:37%">
       <div class="container">
         <h2>MISTER EMAIL</h2>
         <p class="title">Creat Your Email Acount</p>
@@ -35,7 +35,7 @@ export default {
 
   <div class="column">
     <div class="card">
-      <img src="../../../../img/pexels-photo-1629212.jpeg" alt="John" style="width:100%">
+      <img src="/img/pexels-photo-1629212.jpeg" alt="John" style="width:100%">
       <div class="container">
         <h2>MISS KEEP</h2>
         <p class="title">Make Some Notes</p>
