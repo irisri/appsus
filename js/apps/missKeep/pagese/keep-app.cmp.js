@@ -5,10 +5,9 @@ import keepList from "../cmp/keep-list.cmp.js";
 export default {
   template: `
       <main class="keep-app">
-        <app-header @filter="setFilter"/>
-        <!-- <note-filter class="flex" @filter="setFilter"/> -->
-        <keep-list :notes="notesToShow" @savingChanges="onSaveChanges" @deleteNote="onRemoveNote" @deleteOneTodo="onRemoveOneTodo"/>
-        <!-- <pre>{{notes}}</pre> -->
+        <app-header @filter="setFilter" @addingNote="OnAddNote" />
+        <keep-list :notes="notesToShow" @savingChanges="onSaveChanges" @deleteNote="onRemoveNote" @pinNote="onPinNote"
+        @deleteOneTodo="onRemoveOneTodo"/>
       </main>
       `,
   data() {
@@ -35,6 +34,18 @@ export default {
     },
     onRemoveOneTodo(noteId, todoId) {
       keepService.removeOneTodo(noteId, todoId).then((notes) => {
+        this.notes = notes;
+        return this.arrengeNotesByPinned();
+      });
+    },
+    onPinNote(noteId) {
+      keepService.pinNote(noteId).then((notes) => {
+        this.notes = notes;
+        return this.arrengeNotesByPinned();
+      });
+    },
+    OnAddNote(info) {
+      keepService.addNote(info).then(notes => {
         this.notes = notes;
         return this.arrengeNotesByPinned();
       });

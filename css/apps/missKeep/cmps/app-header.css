@@ -1,4 +1,4 @@
-.filrets input {
+.input-header {
     border-radius: 12px;
     border: none;
     outline: none;
@@ -6,6 +6,7 @@
     padding: 0.3125rem;
     font-family: robotoLight;
     margin-top: 0.8rem;
+    margin-right: 0.3125rem;
 }
 
 .filrets input::placeholder {
@@ -16,9 +17,28 @@
     outline: none;
     border: none;
     padding: 0.3125rem;
-    border-radius: 12px;
 }
 
 .select-selected {
     border: none;
+}
+
+.add-note {
+    margin: 0 auto
+}
+
+.add-note i {
+    cursor: pointer;
+    margin-right: 0.3125rem;
+    padding: 0.8rem;
+}
+
+.add-note i:hover {
+    background-color: rgba(137, 142, 148, 0.144);
+    border-radius: 50%;
+    transition: transform 2s, background-color .5s
+}
+
+.add-note input {
+    cursor: pointer;
 }

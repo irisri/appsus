@@ -3,7 +3,7 @@ export default {
   // props: ["info", "noteId"],
   template: `
     <section class="note">
-      <input @blur="saveChanges" v-model="txt" />
+      <input type="text" @blur="saveChanges" v-model="txt" />
                 <!-- <label>
                     {{info.label}}
                     <select v-model="val" @change="reportVal">  
@@ -12,7 +12,7 @@ export default {
                 </label>   -->
       <div>
         <i title="Text note" class="fas fa-font"></i>
-        <i title="Pin" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
+        <i title="Pin" @click="pinNote" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
         <i title="Delete" class="fas fa-trash-alt" @click="removeNote"></i>
       </div>
     </section>
@@ -28,7 +28,10 @@ export default {
     },
     removeNote() {
       this.$emit('removingNote', this.note.id);
-    }
+    },
+    pinNote() {
+      this.$emit("pinNote", this.note.id);
+    },
   },
   updated() {
     console.log('updated');

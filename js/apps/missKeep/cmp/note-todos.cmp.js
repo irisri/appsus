@@ -10,8 +10,7 @@ export default {
         v-for="todo in note.info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
       <div>
         <i title="Add item" @click="addingOneTodo" class="fas fa-list-ul"></i>
-        <!-- add function for pin -->
-        <i title="Pin" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
+        <i title="Pin" @click="pinNote" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
         <i title="Delete" class="fas fa-trash-alt" @click="removeNote"></i>
       </div>
     </section>
@@ -36,6 +35,9 @@ export default {
     },
     reomveOneTodo(todoId) {
       this.$emit('removingOneTodo', this.note.id, todoId);
+    },
+    pinNote() {
+      this.$emit("pinNote", this.note.id);
     },
   }
 };

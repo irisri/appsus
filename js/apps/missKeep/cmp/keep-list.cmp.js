@@ -9,7 +9,7 @@ export default {
   template: `
   <section class="keep-list">
         <div v-for="note in notes" :key="note.legth">
-            <component :is="note.type" :note="note" :key="note.id" 
+            <component :is="note.type" :note="note" :key="note.id" @pinNote="pinNote" 
             @removingOneTodo="removeOneTodo" @removingNote="removeNote" @savingChanges="saveChanges"></component>
         </div>
     </section>
@@ -29,6 +29,9 @@ export default {
     },
     removeOneTodo(noteId, todoId) {
       this.$emit('deleteOneTodo', noteId, todoId);
+    },
+    pinNote(noteId, todoId) {
+      this.$emit('pinNote', noteId, todoId);
     },
   },
   created() {
