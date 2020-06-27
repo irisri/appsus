@@ -1,9 +1,8 @@
 export default {
   template: `
-    <div class="second-nav flex space-between">
+    <div class="second-nav flex space-between keep-nav">
       <h1>Notes</h1>
       <div class="add-note">
-        <!-- add function -->
         <input class="input-header" v-model="note.txt" type="text" @blur="addNote" />
         <i title="add text note" @click="changeNote('noteText')" class="fas fa-font" :class="{black: note.type === 'noteText'}"></i>
         <i title="add todo note" @click="changeNote('noteTodos')" class="fas fa-list-ul" :class="{black: note.type === 'noteTodos'}"></i>

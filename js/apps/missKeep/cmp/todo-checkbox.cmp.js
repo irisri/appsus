@@ -1,9 +1,11 @@
 export default {
     props: ["todo", "todoId"],
     template: `
-        <div class="todo">
-            <input type="checkbox" :id="todo.id" @click="toggleChecked" :checked="this.todo.doneAt">
-            <input @blur="saveChangedTodo" v-model="txt" :class="{'line-through': todo.doneAt}"/>
+        <div class="todo flex space-between">
+            <div>
+                <input type="checkbox" :id="todo.id" @click="toggleChecked" :checked="this.todo.doneAt">
+                <input @blur="saveChangedTodo" v-model="txt" :class="{'line-through': todo.doneAt}"/>
+            </div>
             <span @click="removeOneTodo()">x</span>
         </div>
     `,

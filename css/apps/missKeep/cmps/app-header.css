@@ -24,7 +24,7 @@
 }
 
 .add-note {
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .add-note i {
@@ -41,4 +41,20 @@
 
 .add-note input {
     cursor: pointer;
+}
+
+
+@media (max-width: 860px) {
+    .add-note i {
+        cursor: pointer;
+        margin-right: 0.1rem;
+        padding: 0.1rem;
+    }
+    .keep-nav {
+        direction: flex;
+        flex-direction: column;
+    }
+    .keep-nav h1 {
+        text-align: left;
+    }
 }
