@@ -1,4 +1,4 @@
-import homePage from "./home-page.cmp.js";
+import homePage from "./apps/cmp/home-page.cmp.js";
 import bookApp from "./apps/missBook/pages/book-app.cmp.js";
 import bookDetails from "./apps/missBook/pages/book-details.cmp.js";
 import bookFind from "./apps/missBook/pages/find-book.cmp.js";
