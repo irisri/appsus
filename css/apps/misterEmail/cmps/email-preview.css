@@ -3,14 +3,21 @@
     border-bottom: 1px solid lightgray;
     cursor: pointer;
     font-family: robotoLight, sans-serif;
+   
     /* text-align: justify; */
     /* white-space: wrap; */
 }
 
 .email-preview:hover {
-    border-left: 2px solid lightgray;
+    /* border-left: 2px solid lightgray; */
     border-right: 2px solid lightgray;
-    box-shadow: 0px 1px 0px lightgrey;
+    box-shadow: 1px 1px 18px lightgrey;
+}
+
+.preview-start {
+    max-height: 35px;
+    min-height: 35px;
+    font-weight: 1000;
 }
 
 .email-preview *{
@@ -19,4 +26,90 @@
 
 .email-open {
     /* display: inline-flex; */
+}
+
+.starred {
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-image: url(../../../../img/icons/star_googyellow500_20dp.png);
+}
+
+.not-starred {
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-image: url(../../../../img/icons/star_border_black_20dp.png);
+}
+.mark-read {
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-image: url(../../../../img/icons/drafts_black_20dp.png);
+}
+.mark-unread {
+    width: 25px;
+    height: 25px;
+    background-size: cover;
+    background-image: url(../../../../img/icons/mark_as_unread_black_20dp.png);
+}
+
+
+.preview-start span {
+    /* flex-grow: 1; */
+    padding-right: 10px;
+}
+.star {
+    margin: 0 10px;
+}
+
+.preview-start span:nth-child(1) {
+    min-width: 100px;
+    max-width: 100px;
+    
+
+}
+
+.preview-start span:nth-child(2) {
+    
+    /* /* background-color: blue; */
+    /* min-width: 200px;
+    max-width: 200px; */
+    /* background-color: green; */
+
+}
+
+.email-open-start {
+    padding: 0 45px;
+}
+.preview-read {
+    font-weight: 500;
+}
+.email-preview-contents {
+    padding: 0 20px 20px;
+}
+.email-goto-details {
+    background-image: url(../../../../img/icons/open_in_new_black_20dp.png);
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+}
+.preview-start span:nth-child(3) {
+    /* min-width: calc(100%-200px*3); */
+    /* max-width: calc(100%-200px*3); */
+    flex-grow: 1;
+    /* width: 50px;  */
+    overflow: hidden;
+    text-overflow: ellipsis; 
+
+}
+
+.preview-start span:nth-child(4) {
+    min-width: 75px;
+    max-width: 75px;
+}
+
+.preview-start span:nth-child(5) {
+    min-width: 25px;
+    max-width: 25px;
 }

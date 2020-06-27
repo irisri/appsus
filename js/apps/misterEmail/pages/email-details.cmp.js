@@ -10,7 +10,14 @@ export default {
             <email-filter class=""/> -->
             <button class="close-btn" @click="close">Go Back!</button>
             <!-- <header class=""></header> -->
-            <p>{{email.name}} <{{email.address}}>  {{day}}, {{email.dateSent}}, {{hour}}:{{minutes}}</p>
+            <span class="flex space-between">
+                <span>{{email.name}}<{{email.address}}></span>
+                <span>{{day}}, {{email.dateSent}}, {{hour}}:{{minutes}}</span>
+            </span>
+            <br/>
+            <h3>{{email.subject}}</h3>
+            <br/>
+
             <p>{{email.body}}</p>
         </section>
     `,

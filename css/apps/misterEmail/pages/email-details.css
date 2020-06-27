@@ -1,18 +1,20 @@
 .email-details :not(:first-child) *{
-    background-color: #fffffff8;
+    /* background-color: #fffffff8;
     color: #606060;
     letter-spacing: 0.48px;
     line-height: 20px;
     margin-right: 10px;
     padding-left: 0.4rem;
     padding-right: 0.4rem;
-    font-family: robotoLight, sans-serif;
+    font-family: robotoLight, sans-serif; */
 }
 
 .email-details {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 200px 1200px;
-    gap: 10px; 
+    gap: 10px;  */
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 .close-btn {

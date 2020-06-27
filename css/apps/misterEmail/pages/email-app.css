@@ -1,12 +1,12 @@
 
-.email-app :not(:first-child) *{
+.email-app *{
     background-color: #fffffff8;
     color: #606060;
     letter-spacing: 0.48px;
-    line-height: 20px;
+    /* line-height: 20px;
     margin-right: 10px;
     padding-left: 0.4rem;
-    padding-right: 0.4rem;
+    padding-right: 0.4rem; */
     font-family: robotoLight, sans-serif;
 }
 
@@ -16,3 +16,17 @@ main .email-app {
     gap: 10px;  */
 }
 
+.email-menu {
+    width: 200px;
+    min-width: 200px;
+    text-align: left;
+}
+
+.email-menu .filter-btn {
+    text-align: left;
+}
+
+.email-list {
+    margin-top: 10px;
+    margin-right: 20px;
+}

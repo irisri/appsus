@@ -4,7 +4,7 @@ new Vue({
   el: "#App",
   router: myRouter,
   template: `
-    <div class="text-center screen"  @click="closeMenu">
+    <div class="screen"  @click="closeMenu">
       <div class="main-nav flex space-between align-center" :class="classObject">
         <div class="logo">Apsus</div>
         <button class="btn-menu" @click.stop="toggleMenu()">☰</button>
