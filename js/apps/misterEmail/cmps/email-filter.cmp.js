@@ -1,22 +1,31 @@
+
 export default {
     template: `
         <section class="email-filter">
-            <button class="compose-btn" @click="onFilter">Compose</button>
-            <button class="filter-btn" @click="onFilter">Inbox</button>
-            <button class="filter-btn" @click="onFilter">Starred</button>
-            <button class="filter-btn" @click="onFilter">Sent</button>
+            <select  @change="onFilter" v-model="filterBy">
+               <option value="all">All</option>
+               <option value="read">Read</option>
+               <option value="unread">Unread</option>
+            </select>
+            <select  @change="onFilter" v-model="sortBy">
+               <option value="date">Date</option>
+               <option value="title">Title</option>
+            </select>
         </section>
     `,
-    data() {
+     data() {
         return {
-            filterBy: {
-                name: '',
-            }
+            filterBy: 'all',
+            sortBy: 'date'
         }
     },
     methods: {
         onFilter() {
-            this.$emit('filter', this.filterBy)
-        }
+            const filterEvent = {filterBy : this.filterBy, sortBy: this.sortBy};
+            this.$emit('filter', filterEvent);
+        },
+
     }
 };
+
+
