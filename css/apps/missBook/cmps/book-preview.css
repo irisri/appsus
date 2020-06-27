@@ -1,12 +1,12 @@
 .book-preview {
-    border: solid 1px black;
-    margin-bottom: 20px;
-    background-color: indianred;
+    background-color: rgba(172, 204, 207, 0.651);
+    border-radius: 10px;
 }
 
 .book-preview img {
     margin: 0 auto;
     height: 200px;
+    margin-top: 15px;
 }
 
 .book-preview h3 {
@@ -16,3 +16,4 @@
 .book-preview p {
     margin-bottom: 5px;
 }
+
