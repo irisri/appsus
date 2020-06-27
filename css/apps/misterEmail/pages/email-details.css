@@ -1,5 +1,4 @@
-
-.email-app :not(:first-child) *{
+.email-details :not(:first-child) *{
     background-color: #fffffff8;
     color: #606060;
     letter-spacing: 0.48px;
@@ -10,9 +9,13 @@
     font-family: robotoLight, sans-serif;
 }
 
-main .email-app {
-    /* display: grid;
+.email-details {
+    display: grid;
     grid-template-columns: 200px 1200px;
-    gap: 10px;  */
+    gap: 10px; 
 }
 
+.close-btn {
+    width: 40px;
+    height: 40px;
+}

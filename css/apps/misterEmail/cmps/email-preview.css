@@ -3,7 +3,7 @@
     border-bottom: 1px solid lightgray;
     cursor: pointer;
     font-family: robotoLight, sans-serif;
-    text-align: justify;
+    /* text-align: justify; */
     /* white-space: wrap; */
 }
 
