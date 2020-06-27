@@ -1,21 +1,23 @@
 import todoCheckbox from "./todo-checkbox.cmp.js";
 
 export default {
-  props: ["info", "noteId"],
+  props: ["note"],
+  // props: ["info", "noteId"],
   template: `
     <section class="note">
-      <h4>{{info.label}}</h4>
-        <todo-checkbox :info="info" @saveingTodoChange="saveChangedTodo" @removingOneTodo="reomveOneTodo" 
-        v-for="todo in info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
+      <h4>{{note.info.label}}</h4>
+        <todo-checkbox :info="note.info" @saveingTodoChange="saveChangedTodo" @removingOneTodo="reomveOneTodo" 
+        v-for="todo in note.info.todos" :todoId="todo.id" :todo="todo" :key="todo.id"/>
       <div>
-        <i @click="addingOneTodo" class="fas fa-list-ul"></i>
-        <i class="fas fa-trash-alt" @click="removeNote"></i>
+        <i title="Add item" @click="addingOneTodo" class="fas fa-list-ul"></i>
+        <i title="Pin" @click="pinNote" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
+        <i title="Delete" class="fas fa-trash-alt" @click="removeNote"></i>
       </div>
     </section>
           `,
   data() {
     return {
-      todos: this.info.todos
+      todos: this.note.info.todos
     }
   },
   components: {
@@ -23,16 +25,19 @@ export default {
   },
   methods: {
     saveChangedTodo(todoObj) {
-      this.$emit('savingChanges', this.noteId, todoObj);
+      this.$emit('savingChanges', this.note.id, todoObj);
     },
     addingOneTodo() {
-      this.$emit('savingChanges', this.noteId, {})
+      this.$emit('savingChanges', this.note.id, {})
     },
     removeNote() {
-      this.$emit('removingNote', this.noteId);
+      this.$emit('removingNote', this.note.id);
     },
     reomveOneTodo(todoId) {
-      this.$emit('removingOneTodo', this.noteId, todoId);
+      this.$emit('removingOneTodo', this.note.id, todoId);
+    },
+    pinNote() {
+      this.$emit("pinNote", this.note.id);
     },
   }
 };

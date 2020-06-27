@@ -1,10 +1,15 @@
 export default {
+  props: ["note"],
   template: `
     <section class="note">
-      <video :src="info.url" controls></video>
+      <video :src="note.info.url" controls></video>
+      <div>
+        <i  title="Edit" class="fab fa-youtube"></i>
+        <i title="Pin" @click="pinNote" :class="{black: note.isPinned}" class="fas fa-thumbtack"></i>
+        <i title="Delete" class="fas fa-trash-alt" @click="removeNote"></i>
+      </div>
     </section>
             `,
-  props: ["info"],
   data() {
     return {}
     // return {
@@ -12,8 +17,11 @@ export default {
     // }
   },
   methods: {
-    // reportVal() {
-    //     this.$emit('setVal', this.val)
-    // }
+    removeNote() {
+      this.$emit("removingNote", this.note.id);
+    },
+    pinNote() {
+      this.$emit("pinNote", this.note.id);
+    },
   },
 };

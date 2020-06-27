@@ -4,7 +4,9 @@ export const keepService = {
   getNotes,
   updateNotes,
   removeNotes,
-  removeOneTodo
+  removeOneTodo,
+  addNote,
+  pinNote
 };
 
 const KEY = "notes";
@@ -13,7 +15,6 @@ var gNotes = createNotes();
 
 function createNotes() {
   let notes = utilService.loadFromStorage(KEY);
-  console.log('storege', notes)
   if (notes) return notes;
   notes = [
     {
@@ -38,6 +39,7 @@ function createNotes() {
     {
       id: utilService.makeId(),
       type: "noteTodos",
+      isPinned: true,
       info: {
         label: "How was it:",
         todos: [
@@ -85,11 +87,39 @@ function getNoteById(id) {
   return Promise.resolve(gNotes.find((note) => note.id === id));
 }
 
-function addNotes(type, id, info) {
-  var note = {
-    id: utilService.makeId(),
-  };
-  console.log("adding... continu writing");
+function addNote(info) {
+  console.log("adding... continu writing", info);
+  let note = {id: utilService.makeId()};
+  if (info.type === 'noteVideo') {
+    note.type = info.type;
+    note.info = {
+        url: info.txt
+    };
+  } else if (info.type === 'noteTodos') {
+    note.type = info.type;
+    note.info = {
+        label: info.txt,
+        todos: [{
+          id: utilService.makeId(),
+            txt: null,
+            doneAt: null,
+        }],
+    } 
+  } else if (info.type === 'noteText') {
+    note.type = info.type;
+    note.info = {
+      txt: info.txt,
+    }
+  } else {
+    note.type = info.type;
+    note.info = {
+        url: info.txt,
+      }
+  }
+
+  gNotes.push(note);
+  utilService.saveToStorage(KEY, gNotes);
+  return Promise.resolve(gNotes);
 }
 
 function _createTodo() {
@@ -98,6 +128,14 @@ function _createTodo() {
     txt: null,
     doneAt: null
   }
+}
+
+function pinNote(noteId) {
+  return getNoteById(noteId).then((note) => {
+    if (!note.isPinned) note.isPinned = false;
+    note.isPinned = !note.isPinned;
+    return gNotes;
+  })
 }
 
 function updateNotes(noteId, info) {
