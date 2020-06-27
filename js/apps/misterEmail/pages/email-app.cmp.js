@@ -8,20 +8,31 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 
 export default {
   template: `
-    <main class="email-app ">
+    <main class="email-app">
       <!-- <email-search class=""/> -->
-
+      <header> 
+        <input class="input-search" type="text" placeholder="Search mail" v-model="searchStr" @input="searchByStr"/>
+        <email-filter class="" @filter="setFilter"/>
+      </header>
       <!-- <svg class="gb_af" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg> -->
-      <input class="input-search" type="text" placeholder="Search mail" v-model="searchStr" @input="searchByStr"/>
-      <email-filter class="" @filter="setFilter"/>
-      <button class="compose-btn" @click="onCompose">Compose</button>
-        <email-compose v-if="newCompose" @sentEmail="saveEmail"></email-compose>
-      <button class="filter-btn" @click="updateEmailToShow('inboxEmails')">Inbox</button>
-      <button class="filter-btn" @click="updateEmailToShow('sentEmails')">Sent</button>
-      <button class="filter-btn" @click="updateEmailToShow('starredEmails')">Starred</button>
-      <email-list class="" :emails="emailsToShow" @updateEmail="updateEmailData"/>
+      <section class="flex flex-wrap">
+        <!-- <section> -->
+        <div class="flex column email-menu">
+          <button class="compose-btn" @click="onCompose">Compose</button>
+            <email-compose v-if="newCompose" @sentEmail="saveEmail"></email-compose>
+          <button class="filter-btn" @click="updateEmailToShow('inboxEmails')">Inbox</button>
+          <button class="filter-btn" @click="updateEmailToShow('sentEmails')">Sent</button>
+          <button class="filter-btn" @click="updateEmailToShow('starredEmails')">Starred</button>
+        <!-- </section> -->
+        </div>
+      <!-- <section> -->
+        <div class="flex email-list">
+          <email-list class="" :emails="emailsToShow" @updateEmail="updateEmailData"/>
+      <!-- </section> -->
       <!-- <email-compose @sentEmail="saveEmail"></email-compose> -->
       <!-- <email-compose ></email-compose> -->
+    </div>
+      </section>
     </main>
     `,
   data() {

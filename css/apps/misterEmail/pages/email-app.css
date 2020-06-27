@@ -11,8 +11,8 @@
 }
 
 main .email-app {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 200px 1200px;
-    gap: 10px; 
+    gap: 10px;  */
 }
 
