@@ -8,12 +8,8 @@ export default {
             </ul>
     `,
     methods: {
-        // selectEmail(email) {
-        //     this.$emit('emailSelected', email);
-        // },
-
         saveUpdates(email, emailId) {
-            this.$emit('updateEmail', {email, emailId});
+            this.$emit('updateEmail', { email, emailId });
         }
     },
     components: {

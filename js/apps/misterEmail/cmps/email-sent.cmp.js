@@ -23,8 +23,6 @@ export default {
     computed: {
     },
   components: {
-    // emailFilter,
-    // emailSearch,
     emailCompose
   },
 }

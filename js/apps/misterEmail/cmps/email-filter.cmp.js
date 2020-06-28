@@ -13,7 +13,7 @@ export default {
             </select>
         </section>
     `,
-     data() {
+    data() {
         return {
             filterBy: 'all',
             sortBy: 'date'
@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         onFilter() {
-            const filterEvent = {filterBy : this.filterBy, sortBy: this.sortBy};
+            const filterEvent = { filterBy: this.filterBy, sortBy: this.sortBy };
             this.$emit('filter', filterEvent);
         },
 

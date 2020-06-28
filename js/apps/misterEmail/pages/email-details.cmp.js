@@ -1,7 +1,5 @@
 
 import { emailService } from "../services/email-service.js";
-// import emailSearch from '../cmps/email-search.cmp.js';
-// import emailFilter from '../cmps/email-filter.cmp.js';
 
 export default {
     template: `
@@ -26,7 +24,6 @@ export default {
             email: null,
             nextEmailId: null,
             prevEmailId: null,
-            // dateSent: '',
             hour: '',
             day: '',
         };
@@ -41,8 +38,7 @@ export default {
     computed: {
     },
     components: {
-        // emailFilter,
-        // emailSearch
+  
     },
     created() {
         const { emailId } = this.$route.params;

@@ -5,7 +5,6 @@ export default {
     props: ['email'],
     template: `
         <li class="email-preview width-all">
-            <!--- <button @click.stop="onStar">is starred - {{emailPreview.isStarred}}</button> --->
             <section class="flex space-between width-all" @click="toggleShowMore">
                 <span class="star" :class="starClass"  @click.stop="onStar"></span>
                 <section :class="previewClass" class="flex space-between width-all preview-start">
@@ -14,12 +13,9 @@ export default {
                     <span>{{trimBody}}</span>
                     <span>{{sentAt}} </span>
                     <span :class="readClass" @click.stop="onRead"></span>
-                    
-                    <!-- <span @click.stop="onRead"> is read - {{emailPreview.isRead}}</span> -->
                 </section> 
             </section>            
             <section v-if="showMore">
-                
                 <section class="flex width-all space-between email-open-start"> 
                     <span>{{email.name}} <{{email.address}}></span>
                     <router-link :to="'/email/' + email.id" class="email-goto-details"></router-link>
@@ -33,11 +29,10 @@ export default {
         </li>
     `,
     data() {
-        return{
+        return {
             sentAt: '',
             trimBody: '',
             showMore: false,
-            // emailOpen: false,
             emailPreview: {
                 isStarred: false,
                 isRead: false,
@@ -52,9 +47,8 @@ export default {
         toggleShowMore() {
             this.showMore = !this.showMore;
             console.log('toggleShowMore', this.showMore);
-            
+
             if (this.showMore) this.emailPreview.isRead = true;
-            // this.emailPreview.isRead = true;
         },
         onRead() {
             this.emailPreview.isRead = !this.emailPreview.isRead;
@@ -81,11 +75,11 @@ export default {
             };
         }
     },
-    created(){
+    created() {
         let trimTxt = this.email.body;
         this.trimBody = trimTxt;
         console.log(this.trimBody);
-        let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         let date = new Date(this.email.sentAt);
         this.sentAt = `${date.getDate()} ${months[date.getMonth()]}`;
         this.emailPreview.isRead = this.email.isRead;
