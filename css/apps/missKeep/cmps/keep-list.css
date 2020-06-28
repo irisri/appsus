@@ -1,10 +1,22 @@
 .keep-list {
-    height: 90vh;
-    width: 98%;
+    width: 90%;
     margin: 20px auto;
     column-count: 3;
 }
 
 .keep-list * {
     break-inside: avoid
+}
+
+@media (max-width: 860px) {
+    .keep-list {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 720px) {
+    .keep-list {
+        column-count: 1;
+        width: 98%;
+    }
 }

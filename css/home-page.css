@@ -21,13 +21,14 @@ html {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
+  background-color: #696b70;
 }
   
 .about-section {
   padding: 50px;
   text-align: center;
-  background-color: #696b70;
-  color: white;
+  /* background-color: #696b70; */
+  /* color: white; */
   }
   
 .container {
