@@ -25,7 +25,6 @@ function getDate(sentAt) {
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         let date = new Date(sentAt);
         date = `${date.getDate()} ${months[date.getMonth()]}`;
-        console.log(date);
         return date;
 }
 
@@ -83,9 +82,7 @@ function saveEmail(email) {
         // let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         // email.dateSent = `${date.getDate()} ${months[date.getMonth()]}`;
         gEmails.unshift(email);
-        console.log(email);
     }
-    console.log(gEmails);
     utilService.saveToStorage('emails', gEmails);
     return Promise.resolve(email);
   }

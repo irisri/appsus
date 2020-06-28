@@ -7,7 +7,7 @@
 
 main .email-app {}
 
-.header-app {
+.header-app-email {
     background-color: rgba(217, 220, 223, 0.404);
 }
 
@@ -150,6 +150,7 @@ div.starred {
     }
     .email-main {
         flex-direction: column;
+     
     }
     .preview-start {
         min-height: 70px;

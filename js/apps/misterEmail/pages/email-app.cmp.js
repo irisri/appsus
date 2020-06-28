@@ -6,7 +6,7 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 export default {
   template: `
     <main class="email-app">
-      <header class="justify-center flex header-app"> 
+      <header class="justify-center flex header-app-email"> 
         <input class="input-search" type="text" placeholder="Search mail" v-model="searchStr" @input="searchByStr"/>
         <email-filter class="" @filter="setFilter"/>
       </header>
@@ -40,11 +40,9 @@ export default {
     saveEmail(email) {
       emailService.saveEmail(email);
       this.isCompose = false;
-      console.log(this.emails);
       this.updateEmailToShow();
     },
     updateEmailData(evEmail) {
-      console.log(evEmail);
       emailService.getById(evEmail.emailId)
         .then((email) => {
           email.isStarred = evEmail.email.isStarred;
@@ -56,7 +54,6 @@ export default {
       this.emailsType = status;
       emailService.getEmails(status)
         .then(emails => {
-          console.log(emails);
           this.emailsShow = emails;
         })
     },
@@ -76,7 +73,6 @@ export default {
         if (str.includes(lowerSearch)) return true;
         return false;
       });
-      console.log(filtredEmails);
       this.emailsShow = filtredEmails;
     },
     onCompose() {
@@ -93,12 +89,10 @@ export default {
 
     emailService.getEmails('inboxEmails')
       .then(emails => {
-        console.log(emails);
         this.emailsShow = emails;
       }),
       emailService.getEmails()
         .then(emails => {
-          console.log(emails);
           this.emails = emails;
         })
   },

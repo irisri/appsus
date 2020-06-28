@@ -46,13 +46,11 @@ export default {
         },
         toggleShowMore() {
             this.showMore = !this.showMore;
-            console.log('toggleShowMore', this.showMore);
 
             if (this.showMore) this.emailPreview.isRead = true;
         },
         onRead() {
             this.emailPreview.isRead = !this.emailPreview.isRead;
-            console.log('emailPreview.isRead', this.emailPreview.isRead);
             this.$emit('updateEmail', this.emailPreview);
         }
     },
@@ -78,13 +76,11 @@ export default {
     created() {
         let trimTxt = this.email.body;
         this.trimBody = trimTxt;
-        console.log(this.trimBody);
         let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         let date = new Date(this.email.sentAt);
         this.sentAt = `${date.getDate()} ${months[date.getMonth()]}`;
         this.emailPreview.isRead = this.email.isRead;
         this.emailPreview.isStarred = this.email.isStarred;
-        console.log(this.sentAt);
     },
     components: {
         longText,
