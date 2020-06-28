@@ -11,7 +11,7 @@ export default {
   <div class="column">
     <div class="card">
       <router-link to="/book/">
-        <img src="./appsus/img/photo-1524995997946-a1c2e315a42f.jpg" alt="Jane" style="width:100%">
+        <img src="/appsus/img/photo-1524995997946-a1c2e315a42f.jpg" alt="Jane" style="width:100%">
         <div class="container">
           <h2>MISS BOOK</h2>
           <p class="title">Books Onlain</p>
