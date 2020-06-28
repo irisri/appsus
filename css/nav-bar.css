@@ -97,7 +97,7 @@ header {
 
     header {
         position: relative;
-        z-index: 2;
+        /* z-index: 2; */
     }
 
     nav {
@@ -115,10 +115,15 @@ header {
     }
     
     .nav-link {
-        background-color: rgba(240, 240, 240, 0.7);
+        background-color: rgba(255, 255, 255, 0.842);
         border-left: 1px solid #c4c4c4;
         transform: translateX(100%);
         transition: transform 1s, box-shadow .3s;
+    }
+
+    .router-link-exact-active {
+        color: rgb(0, 0, 0);
+        background-color: rgb(205, 207, 209);
     }
     
     .menu-open .nav-link {
@@ -142,7 +147,7 @@ header {
     }
 
     .nav-link:hover {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(95, 95, 95, 0.842);
     }
 
     .nav-link {
