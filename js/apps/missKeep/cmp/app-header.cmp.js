@@ -1,6 +1,6 @@
 export default {
   template: `
-    <div class="second-nav flex space-between keep-nav">
+    <div class="second-nav flex justify-center keep-nav">
       <div class="add-note">
         <input class="input-header" v-model="note.txt" type="text" @blur="addNote" :placeholder="setPlaceHolder"/>
         <i title="add text note" @click="changeNote('noteText')" class="fas fa-font" :class="{black: note.type === 'noteText'}"></i>

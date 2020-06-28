@@ -9,6 +9,10 @@
     margin-right: 0.3125rem;
 }
 
+.filrets input {
+    width: 15rem;
+}
+
 .filrets input::placeholder {
     padding-left: 0.3125rem;
 }
@@ -23,13 +27,17 @@
     border: none;
 }
 
-.add-note {
-    width: 30rem;
+.add-note input {
+    cursor: pointer;
+    width: 15rem;
+}
+
+.add-note input::placeholder {
+    padding-left: 0.3125rem;
 }
 
 .add-note i {
     cursor: pointer;
-    margin-right: 0.3125rem;
     padding: 0.45rem;
 }
 
@@ -39,23 +47,24 @@
     transition: transform 2s, background-color .5s
 }
 
-.add-note input {
-    cursor: pointer;
-    width: 60%;
-}
-
 
 @media (max-width: 860px) {
+    .keep-nav {
+        flex-direction: column;
+    }
+    .add-note {
+        width: 22rem;
+        margin: 0.3rem auto;
+    }
+    .input-header {
+        margin: 0;
+    }
     .add-note i {
         cursor: pointer;
         margin-right: 0.1rem;
-        padding: 0.1rem;
+        padding: 0.15rem;
     }
-    .keep-nav {
-        direction: flex;
-        flex-direction: column;
-    }
-    .keep-nav h1 {
-        text-align: left;
+    .filrets {
+        margin: 0 auto 0.3rem;
     }
 }
