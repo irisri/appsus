@@ -10,24 +10,25 @@ export default {
   template: `
     <main class="email-app">
       <!-- <email-search class=""/> -->
-      <header> 
+      <header class="justify-center flex"> 
         <input class="input-search" type="text" placeholder="Search mail" v-model="searchStr" @input="searchByStr"/>
         <email-filter class="" @filter="setFilter"/>
       </header>
       <!-- <svg class="gb_af" focusable="false" viewBox="0 0 24 24"><path d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"></path></svg> -->
-      <section class="flex flex-wrap">
+      <section class="flex width-all email-main">
         <!-- <section> -->
         <div class="flex column email-menu">
-          <button class="compose-btn" @click="onCompose">Compose</button>
+          <button class="compose-btn" @click="onCompose"><span class="compose-logo"></span>Compose</button>
             <email-compose v-if="newCompose" @sentEmail="saveEmail"></email-compose>
-          <button class="filter-btn" @click="updateEmailToShow('inboxEmails')">Inbox</button>
-          <button class="filter-btn" @click="updateEmailToShow('sentEmails')">Sent</button>
-          <button class="filter-btn" @click="updateEmailToShow('starredEmails')">Starred</button>
+          <button class="filter-btn" @click="updateEmailToShow('inboxEmails')"><div class="inbox-logo"></div>Inbox</button>
+          <button class="filter-btn" @click="updateEmailToShow('sentEmails')"><div class="sent-logo logo"></div>Sent</button>
+          <button class="filter-btn" @click="updateEmailToShow('starredEmails')"><div class="starred"></div>Starred</button>
         <!-- </section> -->
         </div>
       <!-- <section> -->
-        <div class="flex email-list">
+        <div class="flex email-list width-all">
           <email-list class="" :emails="emailsToShow" @updateEmail="updateEmailData"/>
+          
       <!-- </section> -->
       <!-- <email-compose @sentEmail="saveEmail"></email-compose> -->
       <!-- <email-compose ></email-compose> -->
@@ -92,6 +93,8 @@ export default {
           let str = email.body.toLowerCase();
           let lowerSearch = this.searchStr.toLowerCase();
           if (str.includes(lowerSearch)) return true;
+          str = email.subject.toLowerCase();
+          if (str.includes(lowerSearch)) return true;
           return false;
         });
         console.log(filtredEmails);
@@ -117,6 +120,7 @@ export default {
     }
   },
   created() {
+
       emailService.getEmails('inboxEmails')
       .then(emails => {
           console.log(emails);
@@ -127,6 +131,7 @@ export default {
           console.log(emails);
           this.emails  = emails;
       })
+      
       // emailService.getInboxEmails()
       // .then(emails => {
       //     console.log(emails);

@@ -6,6 +6,12 @@
     height: 200px;
 }
 
+.book-details {
+    /* justify-content: center;
+    display: flex; */
+    margin: 0 auto;
+}
+
 .book-details p {
     margin: 5px;
 }
