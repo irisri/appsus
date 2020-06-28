@@ -32,7 +32,7 @@
     border-bottom: 3px solid #62626265;
 }
 
-.router-link-active {
+.router-link-exact-active {
     color: whitesmoke;
 }
 

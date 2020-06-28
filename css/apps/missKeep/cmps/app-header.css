@@ -5,7 +5,7 @@
     color: #626262;
     padding: 0.3125rem;
     font-family: robotoLight;
-    margin-top: 0.8rem;
+    margin: 0.8rem 0;
     margin-right: 0.3125rem;
 }
 
@@ -24,23 +24,24 @@
 }
 
 .add-note {
-    margin: 0 auto;
+    width: 30rem;
 }
 
 .add-note i {
     cursor: pointer;
     margin-right: 0.3125rem;
-    padding: 0.8rem;
+    padding: 0.45rem;
 }
 
 .add-note i:hover {
     background-color: rgba(137, 142, 148, 0.144);
-    border-radius: 50%;
+    border-radius: 60%;
     transition: transform 2s, background-color .5s
 }
 
 .add-note input {
     cursor: pointer;
+    width: 60%;
 }
 
 
