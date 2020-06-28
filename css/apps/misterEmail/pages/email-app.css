@@ -171,6 +171,7 @@ div.starred {
         /* min-width: 200px;
         max-width: 200px; */
         /* background-color: green; */
+        white-space: normal;
     }
     .preview-start span:nth-child(3) {
         /* min-width: calc(50%-50px*1);

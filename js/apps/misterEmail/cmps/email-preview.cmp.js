@@ -47,7 +47,11 @@ export default {
         toggleShowMore() {
             this.showMore = !this.showMore;
 
-            if (this.showMore) this.emailPreview.isRead = true;
+            if (this.showMore) {
+                this.emailPreview.isRead = true;
+            } else {
+                this.$emit('updateEmail', this.emailPreview);
+            }
         },
         onRead() {
             this.emailPreview.isRead = !this.emailPreview.isRead;
