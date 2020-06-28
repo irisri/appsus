@@ -15,7 +15,7 @@ export default {
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/appsus/img/photo-1524995997946-a1c2e315a42f.jpeg" alt="Jane" style="width:37%">
+      <img src="/appsus/img/photo-1524995997946-a1c2e315a42f.jpeg" alt="Jane" style="width:100%">
       <div class="container">
         <h2>MISS BOOK</h2>
         <p class="title">Books Onlain</p>
@@ -25,7 +25,7 @@ export default {
 
   <div class="column">
     <div class="card">
-      <img src="/appsus/img/mail-communication-connection-message_36325-2232.jpeg" alt="Mike" style="width:37%">
+      <img src="/appsus/img/mail-communication-connection-message_36325-2232.jpeg" alt="Mike" style="width:100%">
       <div class="container">
         <h2>MISTER EMAIL</h2>
         <p class="title">Creat Your Email Acount</p>
