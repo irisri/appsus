@@ -45,11 +45,13 @@
     width: 25px;
     height: 25px;
     background-size: cover;
+    margin: 0 5px;
     background-image: url(../../../../img/icons/drafts_black_20dp.png);
 }
 .mark-unread {
     width: 25px;
     height: 25px;
+    margin: 0px 5px;
     background-size: cover;
     background-image: url(../../../../img/icons/mark_as_unread_black_20dp.png);
 }
