@@ -1,9 +1,8 @@
 export default {
   template: `
     <div class="second-nav flex space-between keep-nav">
-      <h1>Notes</h1>
       <div class="add-note">
-        <input class="input-header" v-model="note.txt" type="text" @blur="addNote" />
+        <input class="input-header" v-model="note.txt" type="text" @blur="addNote" :placeholder="setPlaceHolder"/>
         <i title="add text note" @click="changeNote('noteText')" class="fas fa-font" :class="{black: note.type === 'noteText'}"></i>
         <i title="add todo note" @click="changeNote('noteTodos')" class="fas fa-list-ul" :class="{black: note.type === 'noteTodos'}"></i>
         <i title="add imge note" @click="changeNote('noteImg')" class="fas fa-image" :class="{black: note.type === 'noteImg'}"></i>
@@ -20,28 +19,42 @@ export default {
         </select>
       </div>
     </div>
-    `,
-    data() {
-      return {
-        filterBy: {
-          search: '',
-          noteType: '',
-        },
-        note: {
-          type: "noteText",
-          txt: null
-        },
-      }
+  `,
+  data() {
+    return {
+      filterBy: {
+        search: '',
+        noteType: '',
+      },
+      note: {
+        type: "noteText",
+        txt: null
+      },
+    }
+  },
+  methods: {
+    onFilter() {
+      this.$emit('filter', this.filterBy)
     },
-    methods: {
-      onFilter() {
-        this.$emit('filter', this.filterBy)
-      },
-      changeNote(noteTypy) {
-        this.note.type = noteTypy;        
-      },
-      addNote() {
-        this.$emit('addingNote', this.note);
+    changeNote(noteTypy) {
+      this.note.type = noteTypy;        
+    },
+    addNote() {
+      this.$emit('addingNote', this.note);
+    },
+  },
+  computed: {
+    setPlaceHolder() {
+      switch (this.note.type) {
+        case 'noteText':
+          return "Add text";
+        case 'noteImg':
+          return "Add imge url";
+        case 'noteTodos':
+          return "Add todo";
+        case 'noteVideo':
+          return "Add video url";
       }
+    }
   }
 };

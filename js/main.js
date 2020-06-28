@@ -20,7 +20,7 @@ new Vue({
         </main>
 
         <footer>
-                coffeerights 2020
+                <p>coffeerights 2020</p>
         </footer>
     </div>
     `,
