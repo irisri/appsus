@@ -38,7 +38,7 @@ header {
 }
 
 .nav-link:hover {
-    background-color: rgba(167, 202, 202, 0.856);
+    background-color: rgba(167, 202, 202);
     color: whitesmoke;
     border-bottom: 3px solid #62626265;
 }
@@ -46,7 +46,6 @@ header {
 .router-link-exact-active {
     color: whitesmoke;
 }
-
 
 .logo {
     font-family: robotoBlack, sans-serif;
@@ -141,12 +140,20 @@ header {
         transition: background-color .3s;
     }
 
-    .nav-link:hover {
+    /* .nav-link:hover {
         background-color: rgba(0, 0, 0, 0.1);
-    }
+    } */
 
     .nav-link {
         border-bottom: 1px solid #c4c4c4;
+    }
+
+    .router-link-exact-active {
+        color: black;
+    }
+
+    .nav-link:hover {
+        color: black;
     }
 }
 
@@ -159,6 +166,10 @@ header {
 
     .nav-link :not(:last-child) {
         margin-inline-end: 100px;
+    }
+
+    .nav-link:hover {
+        color: black;
     }
 
 }
