@@ -1,7 +1,8 @@
 
 export default {
     template: `
-        <section class="email-compose">
+        <section class="email-compose flex column">
+            <i @click="onCloseCompose" class="fas fa-times"></i>
             <p>New Message</p>
             <input class="" type="text" placeholder="To" v-model="newEmail.address"/>
             <input class="" type="text" placeholder="Subject" v-model="newEmail.subject"/>
@@ -12,6 +13,7 @@ export default {
     `,
     data() {
         return {
+            closeCompose: true,
             newEmail: {
                 address: '',
                 body: '',
@@ -27,9 +29,14 @@ export default {
             let address = this.newEmail.address;
             let name = address.split('@', 1);
             this.newEmail.name = name[0];
+            this.newEmail.name = (this.newEmail.name).toUpperCase()
             this.$emit('sentEmail', this.newEmail);
             console.log(this.newEmail);
         },
+        onCloseCompose(){
+            this.closeCompose = false;
+            this.$emit('compose', this.closeCompose)
+        }
     },
 
 };

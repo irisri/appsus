@@ -6,14 +6,14 @@ import emailCompose from '../cmps/email-compose.cmp.js';
 export default {
   template: `
     <main class="email-app">
-      <header class="justify-center flex"> 
+      <header class="justify-center flex header-app"> 
         <input class="input-search" type="text" placeholder="Search mail" v-model="searchStr" @input="searchByStr"/>
         <email-filter class="" @filter="setFilter"/>
       </header>
       <section class="flex width-all email-main">
         <div class="flex column email-menu">
           <button class="compose-btn" @click="onCompose"><span class="compose-logo"></span>Compose</button>
-            <email-compose v-if="newCompose" @sentEmail="saveEmail"></email-compose>
+            <email-compose v-if="isCompose" @sentEmail="saveEmail" @compose="onCloseCompose"></email-compose>
           <button class="filter-btn" @click="updateEmailToShow('inboxEmails')"><div class="inbox-logo"></div>Inbox</button>
           <button class="filter-btn" @click="updateEmailToShow('sentEmails')"><div class="sent-logo logo"></div>Sent</button>
           <button class="filter-btn" @click="updateEmailToShow('starredEmails')"><div class="starred"></div>Starred</button>
@@ -31,7 +31,7 @@ export default {
       emailsType: 'inboxEmails',
       filtredEmails: [],
       searchStr: '',
-      newCompose: false,
+      isCompose: false,
       filterBy: 'all',
       sortBy: 'date',
     };
@@ -39,7 +39,7 @@ export default {
   methods: {
     saveEmail(email) {
       emailService.saveEmail(email);
-      this.newCompose = false;
+      this.isCompose = false;
       console.log(this.emails);
       this.updateEmailToShow();
     },
@@ -60,6 +60,9 @@ export default {
           this.emailsShow = emails;
         })
     },
+    onCloseCompose(closeCompose) {
+      this.isCompose = closeCompose
+    },
 
     searchByStr() {
       if (!this.searchStr) {
@@ -77,7 +80,7 @@ export default {
       this.emailsShow = filtredEmails;
     },
     onCompose() {
-      if (!this.newCompose) return this.newCompose = true;
+      if (!this.isCompose) return this.isCompose = true;
     },
 
 

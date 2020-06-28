@@ -1,23 +1,20 @@
-.email-details :not(:first-child) *{
-    /* background-color: #fffffff8;
-    color: #606060;
-    letter-spacing: 0.48px;
-    line-height: 20px;
-    margin-right: 10px;
-    padding-left: 0.4rem;
-    padding-right: 0.4rem;
-    font-family: robotoLight, sans-serif; */
-}
+
 
 .email-details {
-    /* display: grid;
-    grid-template-columns: 200px 1200px;
-    gap: 10px;  */
     max-width: 860px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-.close-btn {
+.close-btn.fas.fa-arrow-left{
     width: 40px;
     height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 10px;
+    color: rgb(148, 151, 155);
+}
+
+.close-btn.fas.fa-arrow-left:hover {
+    color: rgb(77, 73, 73);
 }

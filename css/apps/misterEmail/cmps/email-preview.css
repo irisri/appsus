@@ -113,3 +113,8 @@
     min-width: 25px;
     max-width: 25px;
 }
+
+.fas.fa-times{
+    cursor: pointer;
+    margin: 10px;
+}

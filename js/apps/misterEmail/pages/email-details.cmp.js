@@ -4,10 +4,7 @@ import { emailService } from "../services/email-service.js";
 export default {
     template: `
         <section class="email-details" v-if="email">
-            <!-- <email-search class=""/>
-            <email-filter class=""/> -->
-            <button class="close-btn" @click="close">Go Back!</button>
-            <!-- <header class=""></header> -->
+            <i class="close-btn fas fa-arrow-left" @click="close"></i>
             <span class="flex space-between">
                 <span>{{email.name}}<{{email.address}}></span>
                 <span>{{day}}, {{email.dateSent}}, {{hour}}:{{minutes}}</span>
@@ -15,7 +12,6 @@ export default {
             <br/>
             <h3>{{email.subject}}</h3>
             <br/>
-
             <p>{{email.body}}</p>
         </section>
     `,

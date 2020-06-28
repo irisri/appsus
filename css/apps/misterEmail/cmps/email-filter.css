@@ -1,8 +1,6 @@
 
 .email-filter {
-    /* display: grid; */
-    grid-row: 1/3;
-    grid-column: 1/1;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 button {
@@ -12,6 +10,24 @@ button {
 button:focus {
     outline-width: 0px;
 }
+
+.filter-option {
+    background-color: none;
+    border-radius: 60px;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    /* position: relative; */
+}
+
+
+.filter-option:focus{
+    background-color: none;
+    outline-width: 0px;
+
+}
+
 
 .filter-btn {
     background-color: rgb(255, 255, 255);
@@ -35,13 +51,13 @@ button:focus {
 }
 
 .input-search {
-    width: 400px;
-    background-color:  rgba(218, 221, 224, 0.555);
-    border-radius: 8px;
+    width: 300px;
+    background-color:  rgba(255, 255, 255, 0.966);
+    border-radius: 20px;
     border: none;
     padding-left: 20px;
-    height: 50px;
-    margin-right: 10px;
+    height: 40px;
+    margin: 10px;
  }
 
 .input-search:focus {
@@ -72,3 +88,14 @@ button.compose-btn {
     border-bottom-right-radius: 10px;
 
 }
+
+@media (max-width: 680px) {
+    .filter-btn {
+        padding: 10px;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+        height: 60px;
+        margin-top: 10px;
+    }
+}
+
