@@ -73,8 +73,8 @@
 .preview-start span:nth-child(2) {
     
     /* /* background-color: blue; */
-    /* min-width: 200px;
-    max-width: 200px; */
+    min-width: 200px;
+    max-width: 200px;
     /* background-color: green; */
 
 }
